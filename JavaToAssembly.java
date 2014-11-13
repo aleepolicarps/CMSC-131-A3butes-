@@ -75,12 +75,12 @@ public class JavaToAssembly {
 				i--;
 			}			
 			else if(code.get(i).contains("class")){
-				code.remove(code.get(code.size()-1));
+				code.remove(code.size()-1);
 				code.remove(i);
 				i--;
 			}			
 			else if(code.get(i).contains("public static void main(String[] args)")){
-				code.remove(code.get(code.size()-1));
+				code.remove(code.size()-1);
 				code.remove(i);
 				i--;
 			}			
