@@ -122,6 +122,10 @@ public class AssemblyToJava {
 			}
 			else if(currLine.contains("int 21h"))
 				javaMain.add(print());
+			else if(currLine.contains("mul "))
+				javaMain.add(mul());
+			else if(currLine.contains("div "))
+				javaMain.add(div());
 		}
 		for(String line:javaMain)
 			System.out.println(line);
@@ -165,9 +169,28 @@ public class AssemblyToJava {
 	private String print(){
 		String line = "";
 		String secondLine = javaMain.remove(javaMain.size()-1);
-			String firstLine = javaMain.remove(javaMain.size()-1);
-			firstLine = firstLine.substring(firstLine.indexOf("=")+1,firstLine.length()-1);
-			line = "System.out.print("+firstLine+");";		
+		String firstLine = javaMain.remove(javaMain.size()-1);
+		firstLine = firstLine.substring(firstLine.indexOf("=")+1,firstLine.length()-1);
+		line = "System.out.print("+firstLine+");";		
+		return line;
+	}
+	private String mul(){
+		String line = "";
+		String secondLine = javaMain.remove(javaMain.size()-1);
+		secondLine = secondLine.substring(secondLine.indexOf("=")+1,secondLine.length()-1);
+		String firstLine = javaMain.remove(javaMain.size()-1);
+		firstLine = firstLine.substring(firstLine.indexOf("=")+1,firstLine.length()-1);
+		line = "ax="+firstLine+"*"+secondLine+";";
+		return line;
+	}
+	private String div(){
+		String line = "";
+		String secondLine = javaMain.remove(javaMain.size()-1);
+		secondLine = secondLine.substring(secondLine.indexOf("=")+1,secondLine.length()-1);
+		String firstLine = javaMain.remove(javaMain.size()-1);
+		firstLine = firstLine.substring(firstLine.indexOf("=")+1,firstLine.length()-1);
+		line = "al="+firstLine+"*"+secondLine+";\n";
+		line = line + "ah="+firstLine+"%"+secondLine+";"; 
 		return line;
 	}
 	
