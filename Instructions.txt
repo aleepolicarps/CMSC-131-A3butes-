@@ -1,0 +1,8 @@
+Instructions:
+For Assembler (Java to Asm)
+- Click the ASM file icon
+- A text box will appear. Type the name of the .java file to convert in the text box.
+
+For Disassembler (Asm to Java)
+- Click the JAVA file icon
+- A text box will appear. Type the name of the .asm file to convert in the text box.
